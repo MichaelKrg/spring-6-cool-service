@@ -6,6 +6,7 @@ import guru.springframework.spring6restmvcapi.events.DrinkPreparedEvent;
 import guru.springframework.spring6restmvcapi.events.DrinkRequestEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
@@ -23,7 +24,7 @@ public class DrinkRequestListener {
 
     @KafkaListener(groupId = "CoolListener", topics = KafkaConfig.DRINK_REQUEST_COOL_TOPIC)
     public void listenDrinkRequest(DrinkRequestEvent event) {
-        log.debug("I am listening - drink request");
+        log.debug("I am listening - cool drink request");
 
         drinkRequestProcessor.processDrinkRequest(event);
 
