@@ -27,7 +27,7 @@ jobs:
       - name: Build with maven
         run: ./mvnw -B clean verify --no-transfer-progress
 
-        name: Publish Test Results
+      - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action/linux@v2
         if: always()
         with:
